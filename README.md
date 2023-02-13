@@ -48,9 +48,9 @@ Tüm karakter nesneleri aşağıdaki biçimdedir:
 #### FriendsList bileşenini oluşturun
 
 - [x] Örnektesi `FriendsList` [mockup](./designs/friendslist_mockup.png) gibi bir bileşen oluşturun.
-- [ ] Bileşen bağlandığında, tüm karakterleri gönderen bir API call oluşturun. Bunun korumalı bir route olduğunu unutmayın.
-- [ ] `App.js` içinde, `/friends` ziyaret edildiğinde bu bileşeni görüntüleyen bir route ekleyin
-- [ ] Login bileşeninize, oluşturduğunuz `FriendsList` bileşenine yönlendirme kabiliyeti ekleyin.
+- [x] Bileşen bağlandığında, tüm karakterleri gönderen bir API call oluşturun. Bunun korumalı bir route olduğunu unutmayın.
+- [x] `App.js` içinde, `/friends` ziyaret edildiğinde bu bileşeni görüntüleyen bir route ekleyin
+- [x] Login bileşeninize, oluşturduğunuz `FriendsList` bileşenine yönlendirme kabiliyeti ekleyin.
 
 #### addFriends bileşeni oluşturun
 
