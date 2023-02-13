@@ -1,21 +1,19 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 
 
-export default function FriendsList() {
+export default function FriendsList(props) {
+    const history = useHistory();
     const [friends, setFriends] = useState([]);
-    const loggedInToken = localStorage.getItem("s11g2")
-    const isLoggedIn = (loggedInToken) ? true : false
-
-
-    // axios.create({
-    //     headers: {
-    //         Authorization: loggedInToken,
-    //     },
-    // })
+    let loggedInToken = localStorage.getItem("s11g2");
 
     useEffect(() => {
-        axios
+        if(!!!loggedInToken) {
+            console.log("log", loggedInToken,loggedInToken===null)
+            history.push("/login")
+        }else{
+            axios
             .get("http://localhost:9000/api/friends", {
                 headers: {
                     Authorization: loggedInToken,
@@ -23,19 +21,18 @@ export default function FriendsList() {
             })
             .then((res) => setFriends(res.data))
             .catch((err) => console.log(err))
+        }
     }, [])
     return (
         <div>
-            {!isLoggedIn && <div> Başaramadım... </div>}
-            {isLoggedIn && <div> <h1>Friends List</h1>
-                <div>
-                    <ul>
-                        {friends.map((item) => (
-                            <li key={item.id}>- {item.name} - {item.email} -</li>
-                        ))}
-                    </ul>
-                </div>
-            </div>}
+        <h1>FRIEND LIST</h1>
+            <div>
+                <ul>
+                    {friends.map((item) => (
+                        <li key={item.id}>- {item.name} - {item.email} -</li>
+                    ))}
+                </ul>
+            </div>
         </div>
     )
 }
