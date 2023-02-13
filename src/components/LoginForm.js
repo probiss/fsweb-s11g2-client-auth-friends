@@ -18,7 +18,8 @@ export default function LoginForm() {
         };
         axios(config)
         .then(function (response) {
-            console.log(JSON.stringify(response.data));
+            localStorage.setItem("s11g2", response.data.token);
+            console.log(response.data);
         })
         .catch(function (err) {
             console.log(err);
@@ -29,7 +30,15 @@ export default function LoginForm() {
         // })
         // .then((res) => JSON.parse(console.log(res.data)))
         // .catch((err) => console.log(err));
-    }
+    };
+    //const s11g2 = localStorage.getItem("s11g2");
+
+    // axios.create({
+    //     headers: {
+    //         Authorization: s11g2,
+    //     },
+    // });
+
     return (
         <div>
             <h1>Login</h1>
